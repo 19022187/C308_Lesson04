@@ -55,7 +55,7 @@ class Eats extends React.Component {
 
 class Clock extends React.Component {
   render() {
-    var time = moment.tz(this.props.name).format('HH:mm Z');
+    let time = moment.tz(this.props.name).format('HH:mm Z');
     return (
       <Text>
         {this.props.name} - {time}
@@ -64,10 +64,14 @@ class Clock extends React.Component {
   }
 }
 
-const WorldClock = (props) => {
+const WorldClock = () => {
   return (
     <Text>
-      {props.city} - {moment.tz(props.city)}
+      <Clock city="Asia/Singapore" />
+      <Clock city="Asia/Singapore" />
+      <Clock city="Europe/London" />
+      <Clock city="America/New_York" />
+      <Clock city="Europe/Oslo" />
     </Text>
   );
 };
@@ -106,10 +110,7 @@ const App: () => React$Node = () => {
               />
               <Eats name="Ayam Penyet" location="W4/W6 Lawn Canteen" />
               <Text>World Clock</Text>
-              <WorldClock city="Asia/Singapore" />
-              <WorldClock city="Europe/London" />
-              <WorldClock city="America/New_York" />
-              <WorldClock city="Europe/Oslo" />
+              <WorldClock />
             </View>
           </View>
         </ScrollView>
